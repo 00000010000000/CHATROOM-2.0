@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerClient.ChatController">
+  <children>
+<AnchorPane id="Content" fx:id="anchorPane" minHeight="-1.0" minWidth="-1.0" prefHeight="126.0" prefWidth="900.0" style="-fx-background-color: LIGHTYELLOW;">
+  <children>
+            <TextArea fx:id="ta" layoutY="478.0" opacity="0.7" prefHeight="122.0" prefWidth="687.0" style="-fx-background-color: WHITE;" />
+            <Button fx:id="send" layoutX="687.0" layoutY="478.0" mnemonicParsing="false" onAction="#sendMessage" opacity="0.63" prefHeight="122.0" prefWidth="110.0" style="-fx-background-color: #008b8b;" text="Send" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="Voice" layoutX="797.0" layoutY="478.0" mnemonicParsing="false" onMousePressed="#recordVoiceMessage" opacity="0.63" prefHeight="122.0" prefWidth="102.0" style="-fx-background-color: #cd5c5c;" text="Voice" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <ChoiceBox fx:id="emoji" layoutX="563.0" layoutY="560.0" onAction="#Emoji" opacity="0.66" prefHeight="38.0" prefWidth="124.0" style="-fx-background-color: LIGHTYELLOW;">
+                  <items>
+                      <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="melting-face" />
+                          <String fx:value="question-face" />
+                          <String fx:value="salute-emoji" />
+                          <String fx:value="saluting-face" />
+                      </FXCollections>
+                  </items>
+            </ChoiceBox>
+            <Label layoutX="591.0" layoutY="559.0" text="Emoji" textFill="DARKCYAN">
+               <font>
+                  <Font name="Bradley Hand ITC" size="28.0" />
+               </font>
+            </Label>
+            <ScrollPane fx:id="scrollPane" opacity="0.5" prefHeight="475.0" prefViewportHeight="475" prefViewportWidth="900" prefWidth="900.0">
+               <content>
+                  <VBox fx:id="chatBoxes" opacity="0.6" prefHeight="472.0" prefWidth="898.0" style="-fx-background-color: WHITE;" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="History" layoutX="563.0" layoutY="479.0" mnemonicParsing="false" opacity="0.7" prefHeight="83.0" prefWidth="124.0" style="-fx-background-color: LIGHTYELLOW;" text="HISTORY" textAlignment="CENTER" textFill="DARKCYAN" onAction="#getHistory">
+               <font>
+                  <Font name="Bradley Hand ITC" size="21.0" />
+               </font>
+            </Button>
+  </children>
+</AnchorPane>
+  </children>
+</VBox>

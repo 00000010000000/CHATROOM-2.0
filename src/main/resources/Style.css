@@ -1,0 +1,25 @@
+
+    .root {
+        /*-fx-font-family: "微软雅黑";*/
+        /*-fx-font-size: 16px;*/
+        -fx-background-image: url("login-image.png");
+        -fx-background-size: cover;
+        -fx-background-position: center center;
+    }
+
+    /*button类型选择器设置所有Button的背景色*/
+    .button {
+        -fx-background-color: black;
+    }
+
+    /*hover伪类选择器设置鼠标移过Button时的背景色*/
+    .button:hover {
+        -fx-background-color: gray;
+    }
+
+    /*id选择器设置Label标题的样式*/
+    #lblTitle {
+        -fx-font-size: 20px;
+        -fx-font-weight: bolder;
+        -fx-text-fill: black;
+    }
