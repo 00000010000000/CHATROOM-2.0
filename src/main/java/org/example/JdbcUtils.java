@@ -26,6 +26,7 @@ public class JdbcUtils {
         connection.close();
     }
 
+    //save new users' information in database
     public static void SignUp(String Name,String ID,String Password,int age,String gender) throws Exception{
         try {
             connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
@@ -52,6 +53,9 @@ public class JdbcUtils {
         }
     }
 
+    // check the entered id and password with the data in database
+    // if correct -> "Success!!"
+    // if incorrect -> "Incorrect!!"
     public static boolean LogIn(String id, String password){
         boolean isCorrect = false;
         try{
@@ -85,6 +89,7 @@ public class JdbcUtils {
         return isCorrect;
     }
 
+    // save history in History_table
     public static void History(String id,String Message){
         try{
             connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
@@ -106,6 +111,7 @@ public class JdbcUtils {
         }
     }
 
+    // get the history message from database
     public static String getHistory(){
         String History = "";
         try {

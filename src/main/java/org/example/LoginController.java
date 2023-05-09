@@ -62,9 +62,7 @@ public class LoginController implements Initializable {
         if(isCorrect) {
             Stage stage = (Stage) loginbutton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("chatview.fxml")));
-//            Parent root = loader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("chatview.fxml")));
             Parent root = loader.load();
-            //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("chatview.fxml"));
 
             Scene scene = new Scene(root);
 
@@ -86,6 +84,9 @@ public class LoginController implements Initializable {
         }
     }
 
+    //function for Sign Up button
+    //save your information into database
+    //jump back to log in window
     @FXML
     private void handleSignUp() throws IOException {
         System.out.println("register bottom clicked");
@@ -105,6 +106,7 @@ public class LoginController implements Initializable {
 
 
 
+    //function for animation
     public void rectAnimation(){
         Random random = new Random();
         rect = new Rectangle(xpos + random.nextInt(200),ypos + random.nextInt(200),20 + random.nextInt(20),20 + random.nextInt(20));
@@ -136,8 +138,9 @@ public class LoginController implements Initializable {
         pane.getChildren().add(path);
     }
 
+    // function for create a path
     private Path createEllipsepath(double X,double Y,double radius,double rotate) {
-    //手写circle path
+    //hand write a circle path
         ArcTo arcto = new ArcTo();
         arcto.setX(X - radius + 1);
         arcto.setY(Y - radius);
@@ -152,62 +155,6 @@ public class LoginController implements Initializable {
         path.setStroke(Color.DODGERBLUE);
         path.getStrokeDashArray().setAll(5d,5d);
         return path;
-    }
-
-    public void animation() {
-        //Drawing a Circle
-        Circle circle = new Circle();
-
-        //Setting the position of the circle
-        circle.setCenterX(300.0f);
-        circle.setCenterY(135.0f);
-
-        //Setting the radius of the circle
-        circle.setRadius(25.0f);
-
-        //Setting the color of the circle
-        circle.setFill(BROWN);
-
-        //Setting the stroke width of the circle
-        circle.setStrokeWidth(20);
-
-        //Instantiating the path class
-        Path path = new Path();
-
-        //Creating the MoveTo path element
-        MoveTo moveTo = new MoveTo(100, 150);
-
-        //Creating the Cubic curve path element
-        CubicCurveTo cubicCurveTo = new CubicCurveTo(400, 40, 175, 250, 500, 150);
-
-        //Adding the path elements to Observable list of the Path class
-        path.getElements().add(moveTo);
-        path.getElements().add(cubicCurveTo);
-
-        //Creating a path transition
-        PathTransition pathTransition = new PathTransition();
-
-        //Setting the duration of the path transition
-        pathTransition.setDuration(Duration.millis(1000));
-
-        //Setting the node for the transition
-        pathTransition.setNode(circle);
-
-        //Setting the path
-        pathTransition.setPath(path);
-
-        //Setting the orientation of the path
-        pathTransition.setOrientation(PathTransition.OrientationType.
-                ORTHOGONAL_TO_TANGENT);
-
-        //Setting the cycle count for the transition
-        pathTransition.setCycleCount(50);
-
-        //Setting auto reverse value to false
-        pathTransition.setAutoReverse(false);
-
-        //Playing the animation
-        pathTransition.play();
     }
 
 }

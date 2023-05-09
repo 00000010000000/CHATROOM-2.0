@@ -28,6 +28,7 @@ public class Client implements Runnable{
     static int ServerPort = 1234;
     public String hostname = "localhost";
 
+    // create Client
     public Client(String hostname, int ServerPort, String name, ChatController ctr1) {
         this.hostname = hostname;
         this.ServerPort = ServerPort;
@@ -35,6 +36,7 @@ public class Client implements Runnable{
         this.ctr = ctr1;
     }
 
+    //get the message and send it to server
     public void run(){
         try{
             s = new Socket(hostname, ServerPort);
@@ -77,6 +79,7 @@ public class Client implements Runnable{
         }
     }
 
+    // function for send voice message
     public static void sendVoiceMessage(byte[] audio) throws IOException{
         Message newMessage = new Message();
         newMessage.setType(MessageType.VOICE);
@@ -86,6 +89,7 @@ public class Client implements Runnable{
         dos.flush();
     }
 
+    // function for send String message
     public static void sendString(Message msg) throws IOException{
         System.out.println("msg is "+msg);
         Message newMessage = msg;

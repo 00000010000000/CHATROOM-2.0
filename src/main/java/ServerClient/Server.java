@@ -37,6 +37,7 @@ public class Server {
         }
     }
 
+    // server thread
     private static class Handler extends Thread {
         private String name;
         private Socket socket;
@@ -50,6 +51,7 @@ public class Server {
         public Handler(Socket socket) throws IOException{
             this.socket = socket;
             //通过该函数将socket传过去
+            // use this function to send socket
         }
 
         public void run(){
@@ -109,6 +111,7 @@ public class Server {
             }
         }
 
+        //function for user log out
         private synchronized void closeConnections(){
             logger.debug("closeConnections() method Enter");
             if(name != null){
@@ -141,6 +144,7 @@ public class Server {
             logger.debug("closeConnections() method Exit");
         }
 
+        // function for send message to client
         private void write(Message msg) throws IOException{
             for (ObjectOutputStream writer : writers){
                 System.out.println("step3 "+writer);
